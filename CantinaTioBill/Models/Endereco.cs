@@ -14,7 +14,13 @@ namespace CantinaTioBill.Models
         public string Rua { get; set; }
         [Required]
         public int Numero { get; set; }
+        public string Bairro { get; set; }
         [StringLength(100)]
         public string Referencia { get; set; }
+
+        public Cliente Cliente { get; set; }
+
+        public int ClienteId { get; set; }
+
     }
 }

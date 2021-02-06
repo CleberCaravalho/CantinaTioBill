@@ -3,232 +3,234 @@ using System;
 using CantinaTioBill.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CantinaTioBill.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20210206010439_InicioDB")]
-    partial class InicioDB
+    [Migration("20210206230249_MigracaoSQLServer")]
+    partial class MigracaoSQLServer
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .UseIdentityByDefaultColumns()
-                .HasAnnotation("Relational:MaxIdentifierLength", 63)
+                .UseIdentityColumns()
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.2");
 
             modelBuilder.Entity("CantinaTioBill.Models.Categoria", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .UseIdentityByDefaultColumn();
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("categoria");
+                    b.ToTable("Categorias");
                 });
 
             modelBuilder.Entity("CantinaTioBill.Models.Cliente", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .UseIdentityByDefaultColumn();
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Telefone")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("cliente");
+                    b.ToTable("Clientes");
                 });
 
             modelBuilder.Entity("CantinaTioBill.Models.Endereco", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .UseIdentityByDefaultColumn();
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
-                    b.Property<int?>("ClienteId")
-                        .HasColumnType("integer");
+                    b.Property<string>("Bairro")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ClienteId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Numero")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<string>("Referencia")
                         .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Rua")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ClienteId");
 
-                    b.ToTable("endereco");
+                    b.ToTable("Enderecos");
                 });
 
             modelBuilder.Entity("CantinaTioBill.Models.Funcionario", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .UseIdentityByDefaultColumn();
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<string>("Login")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Senha")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("funcionario");
+                    b.ToTable("Funcionarios");
                 });
 
             modelBuilder.Entity("CantinaTioBill.Models.Ingrediente", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .UseIdentityByDefaultColumn();
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ProdutoId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ProdutoId");
 
-                    b.ToTable("ingrediente");
+                    b.ToTable("Ingredientes");
                 });
 
             modelBuilder.Entity("CantinaTioBill.Models.Pedido", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .UseIdentityByDefaultColumn();
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<int>("ClienteId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Data")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("datetime2");
 
                     b.Property<decimal>("Desconto")
-                        .HasColumnType("numeric");
-
-                    b.Property<int>("EnderecoId")
-                        .HasColumnType("integer");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("FormaPagamento")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("Status")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<decimal>("TaxaEntrega")
-                        .HasColumnType("numeric");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("Troco")
-                        .HasColumnType("numeric");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("Valor")
-                        .HasColumnType("numeric");
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ClienteId");
 
-                    b.HasIndex("EnderecoId");
-
-                    b.ToTable("pedido");
+                    b.ToTable("Pedidos");
                 });
 
             modelBuilder.Entity("CantinaTioBill.Models.Produto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .UseIdentityByDefaultColumn();
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<int>("CategoriaId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<decimal>("Preco")
-                        .HasColumnType("numeric");
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoriaId");
 
-                    b.ToTable("produto");
+                    b.ToTable("Produtos");
                 });
 
             modelBuilder.Entity("CantinaTioBill.Models.ProdutoPedido", b =>
                 {
                     b.Property<int>("PedidoId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int>("ProdutoId")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<string>("Observacao")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Quantidade")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.HasKey("PedidoId", "ProdutoId");
 
                     b.HasIndex("ProdutoId");
 
-                    b.ToTable("produto_pedido");
+                    b.ToTable("ProdutoPedidos");
                 });
 
             modelBuilder.Entity("CantinaTioBill.Models.Endereco", b =>
                 {
-                    b.HasOne("CantinaTioBill.Models.Cliente", null)
+                    b.HasOne("CantinaTioBill.Models.Cliente", "Cliente")
                         .WithMany("Enderecos")
-                        .HasForeignKey("ClienteId");
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cliente");
                 });
 
             modelBuilder.Entity("CantinaTioBill.Models.Ingrediente", b =>
@@ -246,15 +248,7 @@ namespace CantinaTioBill.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CantinaTioBill.Models.Endereco", "Endereco")
-                        .WithMany()
-                        .HasForeignKey("EnderecoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Cliente");
-
-                    b.Navigation("Endereco");
                 });
 
             modelBuilder.Entity("CantinaTioBill.Models.Produto", b =>
