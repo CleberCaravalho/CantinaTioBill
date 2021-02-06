@@ -17,7 +17,7 @@ namespace CantinaTioBill
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new App());
+            Application.Run(new Frm_Principal());
         }
     }
 }
