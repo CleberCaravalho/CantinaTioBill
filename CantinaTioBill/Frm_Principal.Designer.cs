@@ -29,14 +29,16 @@ namespace CantinaTioBill
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Principal));
             this.Pnl_Formularios = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Btn_Relatorios = new System.Windows.Forms.Button();
             this.Btn_Ajuda = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Lbl_Slogan = new System.Windows.Forms.Label();
             this.Btn_Produtos = new System.Windows.Forms.Button();
-            this.Btn_Cliente = new System.Windows.Forms.Button();
-            this.Btn_Pedido = new System.Windows.Forms.Button();
+            this.Btn_Clientes = new System.Windows.Forms.Button();
+            this.Btn_Pedidos = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -44,12 +46,10 @@ namespace CantinaTioBill
             // 
             // Pnl_Formularios
             // 
-            this.Pnl_Formularios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Pnl_Formularios.Location = new System.Drawing.Point(166, 15);
+            this.Pnl_Formularios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Pnl_Formularios.Location = new System.Drawing.Point(166, 34);
             this.Pnl_Formularios.Name = "Pnl_Formularios";
-            this.Pnl_Formularios.Size = new System.Drawing.Size(634, 435);
+            this.Pnl_Formularios.Size = new System.Drawing.Size(634, 416);
             this.Pnl_Formularios.TabIndex = 1;
             // 
             // panel1
@@ -57,27 +57,48 @@ namespace CantinaTioBill
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel1.Controls.Add(this.Btn_Relatorios);
             this.panel1.Controls.Add(this.Btn_Ajuda);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.Btn_Produtos);
-            this.panel1.Controls.Add(this.Btn_Cliente);
-            this.panel1.Controls.Add(this.Btn_Pedido);
+            this.panel1.Controls.Add(this.Btn_Clientes);
+            this.panel1.Controls.Add(this.Btn_Pedidos);
             this.panel1.Location = new System.Drawing.Point(2, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(164, 450);
+            this.panel1.Size = new System.Drawing.Size(167, 450);
             this.panel1.TabIndex = 2;
+            // 
+            // Btn_Relatorios
+            // 
+            this.Btn_Relatorios.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.Btn_Relatorios.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.Btn_Relatorios.FlatAppearance.BorderSize = 0;
+            this.Btn_Relatorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Relatorios.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_Relatorios.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Btn_Relatorios.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Relatorios.Image")));
+            this.Btn_Relatorios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_Relatorios.Location = new System.Drawing.Point(16, 226);
+            this.Btn_Relatorios.Name = "Btn_Relatorios";
+            this.Btn_Relatorios.Size = new System.Drawing.Size(151, 44);
+            this.Btn_Relatorios.TabIndex = 6;
+            this.Btn_Relatorios.Text = "Relatórios";
+            this.Btn_Relatorios.UseVisualStyleBackColor = false;
             // 
             // Btn_Ajuda
             // 
+            this.Btn_Ajuda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_Ajuda.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.Btn_Ajuda.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
             this.Btn_Ajuda.FlatAppearance.BorderSize = 0;
             this.Btn_Ajuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Ajuda.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_Ajuda.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Btn_Ajuda.Location = new System.Drawing.Point(0, 394);
+            this.Btn_Ajuda.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Ajuda.Image")));
+            this.Btn_Ajuda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_Ajuda.Location = new System.Drawing.Point(16, 395);
             this.Btn_Ajuda.Name = "Btn_Ajuda";
-            this.Btn_Ajuda.Size = new System.Drawing.Size(172, 44);
+            this.Btn_Ajuda.Size = new System.Drawing.Size(151, 44);
             this.Btn_Ajuda.TabIndex = 5;
             this.Btn_Ajuda.Text = "Ajuda";
             this.Btn_Ajuda.UseVisualStyleBackColor = false;
@@ -110,47 +131,51 @@ namespace CantinaTioBill
             this.Btn_Produtos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Produtos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_Produtos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Btn_Produtos.Location = new System.Drawing.Point(0, 228);
+            this.Btn_Produtos.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Produtos.Image")));
+            this.Btn_Produtos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_Produtos.Location = new System.Drawing.Point(16, 176);
             this.Btn_Produtos.Name = "Btn_Produtos";
-            this.Btn_Produtos.Size = new System.Drawing.Size(164, 44);
+            this.Btn_Produtos.Size = new System.Drawing.Size(151, 44);
             this.Btn_Produtos.TabIndex = 2;
             this.Btn_Produtos.Text = "Produtos";
             this.Btn_Produtos.UseVisualStyleBackColor = false;
             this.Btn_Produtos.Click += new System.EventHandler(this.Btn_Produtos_Click);
             // 
-            // Btn_Cliente
+            // Btn_Clientes
             // 
-            this.Btn_Cliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_Cliente.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.Btn_Cliente.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.Btn_Cliente.FlatAppearance.BorderSize = 0;
-            this.Btn_Cliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Cliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Btn_Cliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Btn_Cliente.Location = new System.Drawing.Point(0, 164);
-            this.Btn_Cliente.Name = "Btn_Cliente";
-            this.Btn_Cliente.Size = new System.Drawing.Size(164, 44);
-            this.Btn_Cliente.TabIndex = 1;
-            this.Btn_Cliente.Text = "Cliente";
-            this.Btn_Cliente.UseVisualStyleBackColor = false;
-            this.Btn_Cliente.Click += new System.EventHandler(this.Btn_Cliente_Click);
+            this.Btn_Clientes.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.Btn_Clientes.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.Btn_Clientes.FlatAppearance.BorderSize = 0;
+            this.Btn_Clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Clientes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_Clientes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Btn_Clientes.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Clientes.Image")));
+            this.Btn_Clientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_Clientes.Location = new System.Drawing.Point(16, 126);
+            this.Btn_Clientes.Name = "Btn_Clientes";
+            this.Btn_Clientes.Size = new System.Drawing.Size(151, 44);
+            this.Btn_Clientes.TabIndex = 1;
+            this.Btn_Clientes.Text = "Clientes";
+            this.Btn_Clientes.UseVisualStyleBackColor = false;
+            this.Btn_Clientes.Click += new System.EventHandler(this.Btn_Cliente_Click);
             // 
-            // Btn_Pedido
+            // Btn_Pedidos
             // 
-            this.Btn_Pedido.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.Btn_Pedido.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.Btn_Pedido.FlatAppearance.BorderSize = 0;
-            this.Btn_Pedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Pedido.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Btn_Pedido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Btn_Pedido.Location = new System.Drawing.Point(0, 97);
-            this.Btn_Pedido.Name = "Btn_Pedido";
-            this.Btn_Pedido.Size = new System.Drawing.Size(164, 44);
-            this.Btn_Pedido.TabIndex = 0;
-            this.Btn_Pedido.Text = "Pedido";
-            this.Btn_Pedido.UseVisualStyleBackColor = false;
-            this.Btn_Pedido.Click += new System.EventHandler(this.Btn_Pedido_Click);
+            this.Btn_Pedidos.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.Btn_Pedidos.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.Btn_Pedidos.FlatAppearance.BorderSize = 0;
+            this.Btn_Pedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Pedidos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_Pedidos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Btn_Pedidos.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Pedidos.Image")));
+            this.Btn_Pedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_Pedidos.Location = new System.Drawing.Point(16, 76);
+            this.Btn_Pedidos.Name = "Btn_Pedidos";
+            this.Btn_Pedidos.Size = new System.Drawing.Size(151, 44);
+            this.Btn_Pedidos.TabIndex = 0;
+            this.Btn_Pedidos.Text = "Pedidos";
+            this.Btn_Pedidos.UseVisualStyleBackColor = false;
+            this.Btn_Pedidos.Click += new System.EventHandler(this.Btn_Pedido_Click);
             // 
             // panel2
             // 
@@ -183,13 +208,14 @@ namespace CantinaTioBill
         #endregion
         private System.Windows.Forms.Panel Pnl_Formularios;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button Btn_Pedido;
+        private System.Windows.Forms.Button Btn_Pedidos;
         private System.Windows.Forms.Button Btn_Produtos;
-        private System.Windows.Forms.Button Btn_Cliente;
+        private System.Windows.Forms.Button Btn_Clientes;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label Lbl_Slogan;
         private System.Windows.Forms.Button Btn_Ajuda;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button Btn_Relatorios;
     }
 }
 
