@@ -20,7 +20,9 @@ namespace CantinaTioBill
 
         private void Btn_Pedido_Click(object sender, EventArgs e)
         {
-
+            Frm_Pedidos FrmPedidos = new Frm_Pedidos();
+            Pnl_Formularios.Controls.Clear();
+            Pnl_Formularios.Controls.Add(FrmPedidos);
         }
 
         private void Btn_Cliente_Click(object sender, EventArgs e)
