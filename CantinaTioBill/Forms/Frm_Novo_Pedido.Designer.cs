@@ -247,6 +247,7 @@ namespace CantinaTioBill.Forms
             this.Btn_Finalizar.TabIndex = 18;
             this.Btn_Finalizar.Text = "Finalizar pedido";
             this.Btn_Finalizar.UseVisualStyleBackColor = true;
+            this.Btn_Finalizar.Click += new System.EventHandler(this.Btn_Finalizar_Click);
             // 
             // Btn_Cancelar
             // 

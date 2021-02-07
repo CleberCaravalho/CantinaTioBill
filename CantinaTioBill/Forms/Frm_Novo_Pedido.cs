@@ -23,12 +23,14 @@ namespace CantinaTioBill.Forms
 
         }
 
+        //Abre o Form para buscar clientes.
         private void Btn_Procurar_Click(object sender, EventArgs e)
         {
             Frm_Buscar_Cliente FrmBuscarCliente = new Frm_Buscar_Cliente();
             FrmBuscarCliente.ShowDialog();
         }
 
+        //Carregar os dados do cliente e mostra nos campos da tela.
         private void Btn_OK_Click(object sender, EventArgs e)
         {
             if (Txt_Cliente.Text != "")
@@ -66,6 +68,7 @@ namespace CantinaTioBill.Forms
             }
         }
 
+        //Adiciona os produtos disponiveis no pedido a ser feito
         private void Btn_Adicionar_Produto_Click(object sender, EventArgs e)
         {
             DataGridViewRow coluna = new DataGridViewRow();
@@ -88,26 +91,27 @@ namespace CantinaTioBill.Forms
 
 
         }
-
+        //Calcula valor total do pedido já com os devidos descontos
         private void CalcularValorTotal()
         {
 
-             decimal soma = 0;
-             for (int i = 0; i < Dgv_Produtos_Adicionados.Rows.Count; ++i)
-             {
+            decimal soma = 0;
+            for (int i = 0; i < Dgv_Produtos_Adicionados.Rows.Count; ++i)
+            {
                 soma += (decimal)Dgv_Produtos_Adicionados.Rows[i].Cells[4].Value;
-             }
+            }
 
             decimal desconto = Decimal.Parse("0.00");
             if (Dgv_Produtos_Adicionados.Rows.Count >= 5)
             {
                 desconto = Decimal.Multiply(soma, (decimal)0.215);
-                soma = soma-desconto;
+                soma = soma - desconto;
             }
             Txt_Desconto.Text = desconto.ToString();
             Txt_Valor.Text = soma.ToString();
         }
 
+        //Inicializando colunas da DataGridView com Produtos adicionados no pedido
         private void CarregarColunas()
         {
             try
@@ -124,6 +128,47 @@ namespace CantinaTioBill.Forms
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao adicionar produtos selecionados");
+            }
+        }
+
+        //Finaliza o pedido
+        private void Btn_Finalizar_Click(object sender, EventArgs e)
+        {
+            using(var context = new ApplicationDBContext())
+            {
+           
+                var pedido = new Pedido()
+                {
+                    Valor = Decimal.Parse(Txt_Valor.Text),
+                    Data = DateTime.Now,
+                    Desconto = Decimal.Parse(Txt_Desconto.Text),
+                    FormaPagamento = Cmb_Pagamento.SelectedIndex,
+                    Status = Status.Confirmado,
+                    TaxaEntrega = Decimal.Parse("0.00"),
+                    Troco = Decimal.Parse("0.00"),
+                    ProdutoPedidos = new List<ProdutoPedido>()
+                };
+
+                for(int i = 0; i < Dgv_Produtos_Adicionados.Rows.Count; i++)
+                {
+                    int index = (int)Dgv_Produtos_Adicionados.Rows[i].Cells[0].Value;
+                    var produto = context.Produtos.Where(p => p.Id == index ).First();
+                    pedido.ProdutoPedidos.Add(
+                        new ProdutoPedido() { 
+                            Produto = produto,
+                            Quantidade =1,
+                            Observacao = "",
+                        }
+                    );
+                }
+
+                var cliente = context.Clientes.Where(c => c.Id == _cliente.Id).First();
+                if (cliente.Pedidos == null) cliente.Pedidos = new List<Pedido>();
+
+                cliente.Pedidos.Add(pedido);
+                context.Pedidos.Add(pedido); 
+                context.SaveChanges();
+
             }
         }
     }
