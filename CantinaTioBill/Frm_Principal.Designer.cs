@@ -46,10 +46,12 @@ namespace CantinaTioBill
             // 
             // Pnl_Formularios
             // 
-            this.Pnl_Formularios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Pnl_Formularios.Location = new System.Drawing.Point(166, 34);
+            this.Pnl_Formularios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Pnl_Formularios.Location = new System.Drawing.Point(166, 38);
             this.Pnl_Formularios.Name = "Pnl_Formularios";
-            this.Pnl_Formularios.Size = new System.Drawing.Size(634, 416);
+            this.Pnl_Formularios.Size = new System.Drawing.Size(746, 471);
             this.Pnl_Formularios.TabIndex = 1;
             // 
             // panel1
@@ -65,7 +67,7 @@ namespace CantinaTioBill
             this.panel1.Controls.Add(this.Btn_Pedidos);
             this.panel1.Location = new System.Drawing.Point(2, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(167, 450);
+            this.panel1.Size = new System.Drawing.Size(167, 509);
             this.panel1.TabIndex = 2;
             // 
             // Btn_Relatorios
@@ -96,7 +98,7 @@ namespace CantinaTioBill
             this.Btn_Ajuda.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Btn_Ajuda.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Ajuda.Image")));
             this.Btn_Ajuda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_Ajuda.Location = new System.Drawing.Point(16, 395);
+            this.Btn_Ajuda.Location = new System.Drawing.Point(16, 454);
             this.Btn_Ajuda.Name = "Btn_Ajuda";
             this.Btn_Ajuda.Size = new System.Drawing.Size(151, 44);
             this.Btn_Ajuda.TabIndex = 5;
@@ -184,14 +186,14 @@ namespace CantinaTioBill
             this.panel2.BackColor = System.Drawing.Color.Salmon;
             this.panel2.Location = new System.Drawing.Point(166, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(634, 41);
+            this.panel2.Size = new System.Drawing.Size(746, 41);
             this.panel2.TabIndex = 3;
             // 
             // Frm_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(912, 509);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Pnl_Formularios);

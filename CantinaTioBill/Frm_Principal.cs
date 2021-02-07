@@ -26,12 +26,14 @@ namespace CantinaTioBill
         private void Btn_Cliente_Click(object sender, EventArgs e)
         {
             Frm_Cliente FrmCliente = new Frm_Cliente();
+            Pnl_Formularios.Controls.Clear();
             Pnl_Formularios.Controls.Add(FrmCliente);
         }
 
         private void Btn_Produtos_Click(object sender, EventArgs e)
         {
             Frm_Produto FrmProduto = new Frm_Produto();
+            Pnl_Formularios.Controls.Clear();
             Pnl_Formularios.Controls.Add(FrmProduto);
         }
     }

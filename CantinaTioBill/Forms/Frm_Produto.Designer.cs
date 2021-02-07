@@ -30,49 +30,51 @@ namespace CantinaTioBill.Forms
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Txt_Nome = new System.Windows.Forms.TextBox();
+            this.Cmb_Categoria = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Txt_Preco = new System.Windows.Forms.TextBox();
+            this.Ckl_Ingredientes = new System.Windows.Forms.CheckedListBox();
+            this.Btn_Salvar = new System.Windows.Forms.Button();
+            this.Btn_Cancelar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Btn_Adicionar = new System.Windows.Forms.Button();
+            this.Txt_Novo_Ingrediente = new System.Windows.Forms.TextBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 32);
+            this.label1.Location = new System.Drawing.Point(55, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome";
             // 
-            // textBox1
+            // Txt_Nome
             // 
-            this.textBox1.Location = new System.Drawing.Point(141, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(274, 23);
-            this.textBox1.TabIndex = 1;
+            this.Txt_Nome.Location = new System.Drawing.Point(141, 37);
+            this.Txt_Nome.Name = "Txt_Nome";
+            this.Txt_Nome.Size = new System.Drawing.Size(274, 23);
+            this.Txt_Nome.TabIndex = 1;
             // 
-            // comboBox1
+            // Cmb_Categoria
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Quentinha",
-            "Lanche",
-            "Bebida"});
-            this.comboBox1.Location = new System.Drawing.Point(141, 85);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(182, 23);
-            this.comboBox1.TabIndex = 2;
+            this.Cmb_Categoria.FormattingEnabled = true;
+            this.Cmb_Categoria.Location = new System.Drawing.Point(141, 85);
+            this.Cmb_Categoria.Name = "Cmb_Categoria";
+            this.Cmb_Categoria.Size = new System.Drawing.Size(182, 23);
+            this.Cmb_Categoria.TabIndex = 2;
+            this.Cmb_Categoria.Click += new System.EventHandler(this.Cmb_Categoria_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 88);
+            this.label2.Location = new System.Drawing.Point(53, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 15);
             this.label2.TabIndex = 3;
@@ -81,32 +83,23 @@ namespace CantinaTioBill.Forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(43, 138);
+            this.label3.Location = new System.Drawing.Point(55, 133);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "Preço";
             // 
-            // textBox2
+            // Txt_Preco
             // 
-            this.textBox2.Location = new System.Drawing.Point(141, 138);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(182, 23);
-            this.textBox2.TabIndex = 5;
+            this.Txt_Preco.Location = new System.Drawing.Point(141, 133);
+            this.Txt_Preco.Name = "Txt_Preco";
+            this.Txt_Preco.Size = new System.Drawing.Size(182, 23);
+            this.Txt_Preco.TabIndex = 5;
             // 
-            // label4
+            // Ckl_Ingredientes
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(43, 192);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 15);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Ingredientes";
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
+            this.Ckl_Ingredientes.FormattingEnabled = true;
+            this.Ckl_Ingredientes.Items.AddRange(new object[] {
             "Carne de Sol",
             "Arroz",
             "Feijão",
@@ -116,45 +109,90 @@ namespace CantinaTioBill.Forms
             "Churrasco",
             "Feijoada",
             "Baião"});
-            this.checkedListBox1.Location = new System.Drawing.Point(141, 192);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(233, 130);
-            this.checkedListBox1.TabIndex = 7;
+            this.Ckl_Ingredientes.Location = new System.Drawing.Point(42, 54);
+            this.Ckl_Ingredientes.Name = "Ckl_Ingredientes";
+            this.Ckl_Ingredientes.Size = new System.Drawing.Size(301, 130);
+            this.Ckl_Ingredientes.TabIndex = 7;
             // 
-            // button1
+            // Btn_Salvar
             // 
-            this.button1.Location = new System.Drawing.Point(82, 380);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 33);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Salvar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Btn_Salvar.Location = new System.Drawing.Point(22, 409);
+            this.Btn_Salvar.Name = "Btn_Salvar";
+            this.Btn_Salvar.Size = new System.Drawing.Size(116, 33);
+            this.Btn_Salvar.TabIndex = 8;
+            this.Btn_Salvar.Text = "Salvar";
+            this.Btn_Salvar.UseVisualStyleBackColor = true;
+            this.Btn_Salvar.Click += new System.EventHandler(this.Btn_Salvar_Click);
             // 
-            // button2
+            // Btn_Cancelar
             // 
-            this.button2.Location = new System.Drawing.Point(299, 380);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(116, 33);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Btn_Cancelar.Location = new System.Drawing.Point(207, 409);
+            this.Btn_Cancelar.Name = "Btn_Cancelar";
+            this.Btn_Cancelar.Size = new System.Drawing.Size(116, 33);
+            this.Btn_Cancelar.TabIndex = 9;
+            this.Btn_Cancelar.Text = "Cancelar";
+            this.Btn_Cancelar.UseVisualStyleBackColor = true;
+            this.Btn_Cancelar.Click += new System.EventHandler(this.Btn_Cancelar_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Location = new System.Drawing.Point(21, 13);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(681, 379);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Produto";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.Ckl_Ingredientes);
+            this.groupBox2.Controls.Add(this.Btn_Adicionar);
+            this.groupBox2.Controls.Add(this.Txt_Novo_Ingrediente);
+            this.groupBox2.Location = new System.Drawing.Point(21, 154);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(422, 203);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Ingredientes";
+            // 
+            // Btn_Adicionar
+            // 
+            this.Btn_Adicionar.Location = new System.Drawing.Point(249, 25);
+            this.Btn_Adicionar.Name = "Btn_Adicionar";
+            this.Btn_Adicionar.Size = new System.Drawing.Size(99, 23);
+            this.Btn_Adicionar.TabIndex = 11;
+            this.Btn_Adicionar.Text = "Adicionar";
+            this.Btn_Adicionar.UseVisualStyleBackColor = true;
+            this.Btn_Adicionar.Click += new System.EventHandler(this.Btn_Adicionar_Click);
+            // 
+            // Txt_Novo_Ingrediente
+            // 
+            this.Txt_Novo_Ingrediente.Location = new System.Drawing.Point(42, 25);
+            this.Txt_Novo_Ingrediente.Name = "Txt_Novo_Ingrediente";
+            this.Txt_Novo_Ingrediente.PlaceholderText = "Novo Ingrediente";
+            this.Txt_Novo_Ingrediente.Size = new System.Drawing.Size(182, 23);
+            this.Txt_Novo_Ingrediente.TabIndex = 8;
             // 
             // Frm_Produto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.checkedListBox1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.Btn_Cancelar);
+            this.Controls.Add(this.Btn_Salvar);
+            this.Controls.Add(this.Txt_Preco);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Cmb_Categoria);
+            this.Controls.Add(this.Txt_Nome);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.groupBox1);
             this.Name = "Frm_Produto";
-            this.Size = new System.Drawing.Size(608, 436);
+            this.Size = new System.Drawing.Size(723, 463);
+            this.Load += new System.EventHandler(this.Frm_Produto_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,14 +201,17 @@ namespace CantinaTioBill.Forms
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox Txt_Nome;
+        private System.Windows.Forms.ComboBox Cmb_Categoria;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox Txt_Preco;
+        private System.Windows.Forms.CheckedListBox Ckl_Ingredientes;
+        private System.Windows.Forms.Button Btn_Salvar;
+        private System.Windows.Forms.Button Btn_Cancelar;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button Btn_Adicionar;
+        private System.Windows.Forms.TextBox Txt_Novo_Ingrediente;
     }
 }
