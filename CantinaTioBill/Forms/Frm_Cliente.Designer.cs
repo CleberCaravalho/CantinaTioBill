@@ -151,16 +151,17 @@ namespace CantinaTioBill
             // 
             // Btn_Salvar
             // 
-            this.Btn_Salvar.Location = new System.Drawing.Point(145, 331);
+            this.Btn_Salvar.Location = new System.Drawing.Point(110, 255);
             this.Btn_Salvar.Name = "Btn_Salvar";
             this.Btn_Salvar.Size = new System.Drawing.Size(124, 37);
             this.Btn_Salvar.TabIndex = 12;
             this.Btn_Salvar.Text = "Salvar";
             this.Btn_Salvar.UseVisualStyleBackColor = true;
+            this.Btn_Salvar.Click += new System.EventHandler(this.Btn_Salvar_Click);
             // 
             // Btn_Cancelar
             // 
-            this.Btn_Cancelar.Location = new System.Drawing.Point(347, 331);
+            this.Btn_Cancelar.Location = new System.Drawing.Point(332, 255);
             this.Btn_Cancelar.Name = "Btn_Cancelar";
             this.Btn_Cancelar.Size = new System.Drawing.Size(124, 37);
             this.Btn_Cancelar.TabIndex = 13;
@@ -209,6 +210,8 @@ namespace CantinaTioBill
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.Txt_Bairro);
+            this.groupBox2.Controls.Add(this.Btn_Salvar);
+            this.groupBox2.Controls.Add(this.Btn_Cancelar);
             this.groupBox2.Controls.Add(this.Lbl_Nome);
             this.groupBox2.Controls.Add(this.Lbl_Rua);
             this.groupBox2.Controls.Add(this.label1);
@@ -232,8 +235,6 @@ namespace CantinaTioBill
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.Btn_Cancelar);
-            this.Controls.Add(this.Btn_Salvar);
             this.Controls.Add(this.groupBox2);
             this.Name = "Frm_Cliente";
             this.Size = new System.Drawing.Size(637, 411);
