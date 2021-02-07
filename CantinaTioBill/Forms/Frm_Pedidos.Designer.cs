@@ -32,9 +32,10 @@ namespace CantinaTioBill.Forms
             this.Dgv_Pedidos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Btn_Buscar = new System.Windows.Forms.Button();
+            this.Txt_Codigo = new System.Windows.Forms.TextBox();
             this.Btn_Novo_Pedido = new System.Windows.Forms.Button();
+            this.Btn_Cancelar_Pedido = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Pedidos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -61,8 +62,8 @@ namespace CantinaTioBill.Forms
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.Btn_Buscar);
+            this.groupBox1.Controls.Add(this.Txt_Codigo);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(14, 17);
             this.groupBox1.Name = "groupBox1";
@@ -71,25 +72,26 @@ namespace CantinaTioBill.Forms
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar";
             // 
-            // button1
+            // Btn_Buscar
             // 
-            this.button1.Location = new System.Drawing.Point(230, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Ir";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Btn_Buscar.Location = new System.Drawing.Point(230, 16);
+            this.Btn_Buscar.Name = "Btn_Buscar";
+            this.Btn_Buscar.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Buscar.TabIndex = 3;
+            this.Btn_Buscar.Text = "Ir";
+            this.Btn_Buscar.UseVisualStyleBackColor = true;
+            this.Btn_Buscar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // Txt_Codigo
             // 
-            this.textBox1.Location = new System.Drawing.Point(67, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(157, 23);
-            this.textBox1.TabIndex = 2;
+            this.Txt_Codigo.Location = new System.Drawing.Point(67, 17);
+            this.Txt_Codigo.Name = "Txt_Codigo";
+            this.Txt_Codigo.Size = new System.Drawing.Size(157, 23);
+            this.Txt_Codigo.TabIndex = 2;
             // 
             // Btn_Novo_Pedido
             // 
-            this.Btn_Novo_Pedido.Location = new System.Drawing.Point(524, 29);
+            this.Btn_Novo_Pedido.Location = new System.Drawing.Point(396, 28);
             this.Btn_Novo_Pedido.Name = "Btn_Novo_Pedido";
             this.Btn_Novo_Pedido.Size = new System.Drawing.Size(105, 32);
             this.Btn_Novo_Pedido.TabIndex = 3;
@@ -97,10 +99,21 @@ namespace CantinaTioBill.Forms
             this.Btn_Novo_Pedido.UseVisualStyleBackColor = true;
             this.Btn_Novo_Pedido.Click += new System.EventHandler(this.Btn_Novo_Pedido_Click);
             // 
+            // Btn_Cancelar_Pedido
+            // 
+            this.Btn_Cancelar_Pedido.Location = new System.Drawing.Point(533, 28);
+            this.Btn_Cancelar_Pedido.Name = "Btn_Cancelar_Pedido";
+            this.Btn_Cancelar_Pedido.Size = new System.Drawing.Size(105, 32);
+            this.Btn_Cancelar_Pedido.TabIndex = 4;
+            this.Btn_Cancelar_Pedido.Text = "Cancelar Pedido";
+            this.Btn_Cancelar_Pedido.UseVisualStyleBackColor = true;
+            this.Btn_Cancelar_Pedido.Click += new System.EventHandler(this.Btn_Cancelar_Pedido_Click);
+            // 
             // Frm_Pedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Btn_Cancelar_Pedido);
             this.Controls.Add(this.Btn_Novo_Pedido);
             this.Controls.Add(this.Dgv_Pedidos);
             this.Controls.Add(this.groupBox1);
@@ -119,8 +132,9 @@ namespace CantinaTioBill.Forms
         private System.Windows.Forms.DataGridView Dgv_Pedidos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button Btn_Buscar;
+        private System.Windows.Forms.TextBox Txt_Codigo;
         private System.Windows.Forms.Button Btn_Novo_Pedido;
+        private System.Windows.Forms.Button Btn_Cancelar_Pedido;
     }
 }

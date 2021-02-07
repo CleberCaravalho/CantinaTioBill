@@ -47,7 +47,7 @@ namespace CantinaTioBill.Forms
                         _endereco = _cliente.Enderecos.Last();
                         Txt_Nome.Text = _cliente.Nome;
                         Txt_Endereco.Text = $"{_endereco.Rua}-{_endereco.Numero}-{_endereco.Bairro}";
-
+                        Txt_Taxa.Text = "0.00";
 
 
                         var produtos = context.Produtos.ToList();
@@ -168,6 +168,7 @@ namespace CantinaTioBill.Forms
                 cliente.Pedidos.Add(pedido);
                 context.Pedidos.Add(pedido); 
                 context.SaveChanges();
+                this.Close();
 
             }
         }

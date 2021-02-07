@@ -104,6 +104,7 @@ namespace CantinaTioBill
             this.Btn_Ajuda.TabIndex = 5;
             this.Btn_Ajuda.Text = "Ajuda";
             this.Btn_Ajuda.UseVisualStyleBackColor = false;
+            this.Btn_Ajuda.Click += new System.EventHandler(this.Btn_Ajuda_Click);
             // 
             // panel3
             // 

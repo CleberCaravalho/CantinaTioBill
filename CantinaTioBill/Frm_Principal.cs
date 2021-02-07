@@ -38,5 +38,11 @@ namespace CantinaTioBill
             Pnl_Formularios.Controls.Clear();
             Pnl_Formularios.Controls.Add(FrmProduto);
         }
+
+        private void Btn_Ajuda_Click(object sender, EventArgs e)
+        {
+            Frm_Ajuda FrmAjuda = new Frm_Ajuda();
+            FrmAjuda.ShowDialog();
+        }
     }
 }
